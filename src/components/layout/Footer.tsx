@@ -77,14 +77,11 @@ export default function Footer() {
               <ul className="flex flex-col gap-3 pb-4 pt-2">
                 {footerSocials.map((link) => (
                   <li key={link.label}>
-                    <a
-                      href={link.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="reversed-link text-sm leading-tight text-white/90 hover:text-white md:text-base"
+                    <span
+                      className="text-sm leading-tight text-white/90 md:text-base"
                     >
                       {link.label}
-                    </a>
+                    </span>
                   </li>
                 ))}
               </ul>
