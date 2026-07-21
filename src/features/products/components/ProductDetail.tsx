@@ -3,6 +3,7 @@
 import { useMemo, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { Star, Truck, RotateCcw, Shield } from "lucide-react";
 import type { Product } from "@/types";
 import { useCart } from "@/hooks/useCart";
@@ -11,6 +12,7 @@ import { calcDiscount, cn, formatPrice } from "@/utils";
 type Props = { product: Product };
 
 export default function ProductDetail({ product }: Props) {
+  const router = useRouter();
   const { addItem } = useCart();
   const [qty, setQty] = useState(1);
   const [activeImage, setActiveImage] = useState(0);
@@ -32,6 +34,12 @@ export default function ProductDetail({ product }: Props) {
   const handleAdd = () => {
     if (!product.available) return;
     addItem(product, qty, variant);
+  };
+
+  const handleBuyNow = () => {
+    if (!product.available) return;
+    addItem(product, qty, variant);
+    router.push("/checkout");
   };
 
   return (
@@ -215,7 +223,11 @@ export default function ProductDetail({ product }: Props) {
                   >
                     Add to cart
                   </button>
-                  <button type="button" className="btn btn-secondary flex-1">
+                  <button 
+                    type="button" 
+                    className="btn btn-secondary flex-1"
+                    onClick={handleBuyNow}
+                  >
                     Buy it now
                   </button>
                 </>
