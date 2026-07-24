@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Comfortaa, Inter, Jost } from "next/font/google";
+import { Inter, Jost } from "next/font/google";
 import AppProviders from "@/components/providers/AppProviders";
 import SiteShell from "@/components/layout/SiteShell";
 import { siteConfig } from "@/config/site";
@@ -18,15 +18,8 @@ const jost = Jost({
   style: ["normal", "italic"],
 });
 
-const comfortaa = Comfortaa({
-  subsets: ["latin"],
-  variable: "--font-logo",
-  display: "swap",
-  weight: ["700"],
-});
-
 export const viewport: Viewport = {
-  themeColor: "#171717",
+  themeColor: "#BC0000",
   width: "device-width",
   initialScale: 1,
 };
@@ -41,8 +34,19 @@ export const metadata: Metadata = {
   description: siteConfig.description,
   applicationName: siteConfig.name,
   authors: [{ name: siteConfig.legalName }],
-  // Explicitly disable all favicon / app icon metadata
-  icons: {},
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+      { url: "/favicon-48x48.png", sizes: "48x48", type: "image/png" },
+    ],
+    shortcut: "/favicon.ico",
+    apple: [
+      { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
+    ],
+  },
+  manifest: "/site.webmanifest",
   keywords: [
     "Cyber Land",
     "laptops",
@@ -63,11 +67,20 @@ export const metadata: Metadata = {
     siteName: siteConfig.name,
     title: "Cyber Land: Laptops, Gaming PCs, Hardware & Accessories",
     description: siteConfig.description,
+    images: [
+      {
+        url: "/brand/cyber-land-logo-original.jpeg",
+        width: 710,
+        height: 719,
+        alt: "Cyber Land Computer Services",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Cyber Land: Laptops, Gaming PCs & Tech Accessories",
     description: siteConfig.description,
+    images: ["/brand/cyber-land-logo-original.jpeg"],
   },
   robots: {
     index: true,
@@ -84,7 +97,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${jost.variable} ${comfortaa.variable}`}>
+    <html lang="en" className={`${inter.variable} ${jost.variable}`}>
       <body className="antialiased" suppressHydrationWarning>
         <AppProviders>
           <SiteShell>{children}</SiteShell>

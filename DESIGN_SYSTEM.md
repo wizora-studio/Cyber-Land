@@ -14,22 +14,23 @@
 
 `3xs` 0.625rem · `2xs` 0.6875rem · `xs` 0.75rem · `2sm` 0.8125rem · `sm` 0.875rem · `base` 1rem · `lg` 1.125rem · `xl` 1.25rem · `2xl` 1.5rem · `3xl` 1.875rem · `4xl` 2.25rem · `5xl` 3rem
 
-## Color palette (RGB / Hex)
+## Cyber Land brand palette (RGB / Hex)
 
 | Token | RGB | Hex |
 |-------|-----|-----|
-| Base text / button | 23 23 23 | `#171717` |
-| Background | 255 255 255 | `#FFFFFF` |
-| Announcement bar | 104 90 202 | `#685ACA` |
-| Announcement text | 250 250 250 | `#FAFAFA` |
-| Sale tag | 165 109 205 | `#A56DCD` |
-| Highlight | 255 221 191 | `#FFDDBF` |
+| Primary brand | 188 0 0 | `#BC0000` |
+| Secondary brand | 57 69 75 | `#39454B` |
+| Accent / sale | 224 27 36 | `#E01B24` |
+| Background | 248 250 252 | `#F8FAFC` |
+| Surface | 255 255 255 | `#FFFFFF` |
+| Border | 226 230 233 | `#E2E6E9` |
+| Hover / pressed | 146 0 0 | `#920000` |
+| Soft brand tint | 255 241 241 | `#FFF1F1` |
+| Base text | 32 37 40 | `#202528` |
 | Rating | 245 158 11 | `#F59E0B` |
-| Placeholder | 250 250 250 | `#FAFAFA` |
-| Footer | 0 0 0 | `#000000` |
-| Copyright bar | 23 23 23 | `#171717` |
+| Footer | 34 41 45 | `#22292D` |
+| Copyright bar | 24 29 32 | `#181D20` |
 | Error | 190 18 60 | `#BE123C` |
-| Shadow accent | 168 232 226 | `#A8E8E2` |
 
 ## Radius
 

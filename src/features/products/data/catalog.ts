@@ -597,8 +597,8 @@ export const instagramPosts = [
   },
 ];
 
-export const logoUrl = `${CDN}/files/Cyber Land_Black_Logo_3x-100.jpg?v=1763638279&width=140`;
-export const logoWhiteUrl = `${CDN}/files/Cyber Land_Black_Logo_3x-100.jpg?v=1763638279&width=140`;
+export const logoUrl = "/brand/cyber-land-icon.png";
+export const logoWhiteUrl = "/brand/cyber-land-icon.png";
 
 export function getProductByHandle(handle: string): Product | undefined {
   return products.find((p) => p.handle === handle);

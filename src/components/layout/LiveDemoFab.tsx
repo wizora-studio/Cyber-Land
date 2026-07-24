@@ -21,7 +21,7 @@ export default function LiveDemoFab() {
 
       <button
         type="button"
-        className="ask-krea-fab"
+        className="ask-cyber-fab"
         onClick={() => setOpen(true)}
       >
         <MessageCircle className="h-4 w-4" fill="currentColor" strokeWidth={0} />
@@ -66,7 +66,7 @@ export default function LiveDemoFab() {
                 <MessageCircle className="h-4 w-4" />
                 Chat with Our Support Team
               </a>
-              <p className="mt-3 text-center text-xs font-medium text-[#685aca]">
+              <p className="mt-3 text-center text-xs font-medium text-[#BC0000]">
                 Live Video Shopping
               </p>
             </motion.div>

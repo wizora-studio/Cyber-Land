@@ -39,7 +39,7 @@ function LookProductPanel({ product }: { product: Product }) {
 
   return (
     <article className="stl-panel-card mx-auto w-full max-w-[340px] overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-black/[0.06]">
-      <div className="relative aspect-square bg-[#ebe7f8]">
+      <div className="relative aspect-square bg-[#FFF1F1]">
         {discount > 0 && (
           <span className="absolute left-3 top-3 z-[2] rounded-full bg-[#171717] px-2.5 py-1 text-[11px] font-semibold text-white">
             Save {discount}%
@@ -78,7 +78,7 @@ function LookProductPanel({ product }: { product: Product }) {
         </div>
         <Link
           href={`/products/${product.handle}`}
-          className="mt-2 flex w-full items-center justify-center rounded-full bg-[#171717] px-4 py-2.5 text-sm font-medium text-white transition-colors hover:bg-[#333]"
+          className="mt-2 flex w-full items-center justify-center rounded-full bg-[#BC0000] px-4 py-2.5 text-sm font-medium text-white transition-colors hover:bg-[#920000]"
         >
           {product.hasVariants ? "Choose options" : "Add to cart"}
         </Link>
@@ -178,7 +178,7 @@ export default function ShopTheLook() {
                   className={cn(
                     "h-2 w-2 rounded-full border border-[#171717]/40 transition-all",
                     i === activeIndex
-                      ? "scale-110 border-[#171717] bg-[#171717]"
+                      ? "scale-110 border-[#BC0000] bg-[#BC0000]"
                       : "bg-transparent hover:bg-black/20"
                   )}
                   aria-label={`Show ${p.title}`}

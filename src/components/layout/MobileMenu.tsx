@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
+import BrandLogo from "@/components/common/BrandLogo";
 import { mainNav, mobileNavExtras } from "@/constants/navigation";
 import { useUI } from "@/hooks/useUI";
 
@@ -80,7 +81,7 @@ export default function MobileMenu() {
                   <span>{submenu.label}</span>
                 </button>
               ) : (
-                <span className="menu-drawer__title" />
+                <BrandLogo className="brand-logo--compact" onClick={close} />
               )}
               <button
                 type="button"

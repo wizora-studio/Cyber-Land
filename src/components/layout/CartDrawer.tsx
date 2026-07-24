@@ -78,7 +78,7 @@ export default function CartDrawer() {
                   )}
                   <div className="h-1.5 w-full overflow-hidden rounded-full bg-black/10">
                     <div
-                      className="h-full rounded-full bg-[#685aca] transition-all duration-300"
+                      className="h-full rounded-full bg-[#BC0000] transition-all duration-300"
                       style={{ width: `${progress}%` }}
                     />
                   </div>

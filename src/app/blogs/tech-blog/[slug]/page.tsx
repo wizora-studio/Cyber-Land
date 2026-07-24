@@ -19,7 +19,7 @@ const posts: Record<
     date: "2026",
     body: [
       "The 75% layout keeps arrows and essential keys without the bulk of full-size boards. Hive75 V2 adds gasket-mount feel and hot-swappable switches.",
-      "Black Purple finishes match the Cyber Land aesthetic across mice and accessories.",
+      "The Black Purple finish coordinates across matching mice and accessories.",
     ],
   },
   "level-up-your-setup": {

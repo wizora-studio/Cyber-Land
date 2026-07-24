@@ -29,7 +29,7 @@ export default function CollectionsIndexPage() {
             <Link
               key={c.handle}
               href={`/collections/${c.handle}`}
-              className="group rounded-[var(--rounded-card)] border border-black/8 bg-[#fafafa] p-5 transition-shadow hover:shadow-md"
+              className="group rounded-[var(--rounded-card)] border border-[#E2E6E9] bg-white p-5 transition-all hover:-translate-y-0.5 hover:border-[#BC0000]/30 hover:shadow-md"
             >
               <h2 className="heading text-lg font-medium tracking-tight group-hover:opacity-70 md:text-xl">
                 {c.title}
@@ -39,7 +39,7 @@ export default function CollectionsIndexPage() {
                   {c.description}
                 </p>
               )}
-              <p className="mt-3 text-xs font-semibold text-[#685aca]">
+              <p className="mt-3 text-xs font-semibold text-[#BC0000]">
                 {c.count} product{c.count !== 1 ? "s" : ""}
               </p>
             </Link>

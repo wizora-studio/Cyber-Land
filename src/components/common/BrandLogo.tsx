@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { cn } from "@/utils";
 
@@ -5,16 +6,14 @@ type BrandLogoProps = {
   className?: string;
   href?: string;
   inverted?: boolean;
+  onClick?: () => void;
 };
 
-/**
- * Custom geometric wordmark styled like the Kreo. brand identity:
- * bold rounded geometric font (Comfortaa), tight tracking, accent dot.
- */
 export default function BrandLogo({
   className,
   href = "/",
   inverted = false,
+  onClick,
 }: BrandLogoProps) {
   const mark = (
     <span
@@ -25,19 +24,27 @@ export default function BrandLogo({
       )}
       aria-label="Cyber Land"
     >
-      <span className="brand-logo__text">
-        cyber land
-      </span>
-      <span className="brand-logo__dot" aria-hidden>
-        .
-      </span>
+      <Image
+        src="/brand/cyber-land-icon.png"
+        alt=""
+        width={42}
+        height={42}
+        className="brand-logo__icon"
+        sizes="42px"
+      />
+      <span className="brand-logo__text">Cyber Land</span>
     </span>
   );
 
   if (!href) return mark;
 
   return (
-    <Link href={href} className="site-logo-link brand-logo-link" aria-label="Cyber Land home">
+    <Link
+      href={href}
+      className="site-logo-link brand-logo-link"
+      aria-label="Cyber Land home"
+      onClick={onClick}
+    >
       {mark}
     </Link>
   );

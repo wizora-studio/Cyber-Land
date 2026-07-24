@@ -177,7 +177,7 @@ export default function ProductDetail({ product }: Props) {
                       className={cn(
                         "rounded-full border-2 px-4 py-2 text-sm font-medium transition-colors",
                         variant === v
-                          ? "border-[#171717] bg-[#171717] text-white"
+                          ? "border-[#BC0000] bg-[#BC0000] text-white"
                           : "border-black/15 hover:border-black/40"
                       )}
                       onClick={() => setVariant(v)}

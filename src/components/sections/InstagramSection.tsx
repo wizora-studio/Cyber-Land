@@ -21,12 +21,11 @@ export default function InstagramSection() {
             >
               <span className="relative h-8 w-8 overflow-hidden rounded-full bg-black/10">
                 <Image
-                  src="https://cdn.shopify.com/s/files/1/0619/4325/1121/files/logo_0da4c800-ced3-428e-9dcf-aeee048a60f0.jpg?v=1771233444"
+                  src="/brand/cyber-land-icon.png"
                   alt="@cyberland"
                   fill
                   className="object-cover"
                   sizes="32px"
-                  unoptimized
                 />
               </span>
               @cyberland

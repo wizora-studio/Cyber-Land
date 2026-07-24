@@ -64,7 +64,7 @@ export default function BlogIndexPage() {
               </p>
               <Link
                 href={`/blogs/tech-blog/${post.slug}`}
-                className="mt-3 inline-block text-sm font-semibold text-[#685aca]"
+                className="mt-3 inline-block text-sm font-semibold text-[#BC0000] hover:text-[#920000]"
               >
                 Read more →
               </Link>

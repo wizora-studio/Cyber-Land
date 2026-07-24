@@ -14,7 +14,7 @@ export default function CategoryGrid() {
           <em className="relative inline-block not-italic">
             <span className="italic">Setup</span>
             <svg
-              className="pointer-events-none absolute -bottom-1 left-0 w-[108%] text-[#685aca]"
+              className="pointer-events-none absolute -bottom-1 left-0 w-[108%] text-[#BC0000]"
               viewBox="0 0 140 14"
               fill="none"
               aria-hidden
@@ -42,7 +42,7 @@ export default function CategoryGrid() {
             >
               <Link
                 href={cat.href}
-                className="category-card group relative block overflow-hidden bg-[#e8e4f6]"
+                className="category-card group relative block overflow-hidden bg-[#FFF1F1]"
               >
                 <SafeImage
                   src={cat.image}

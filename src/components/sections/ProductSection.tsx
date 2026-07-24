@@ -32,7 +32,7 @@ export default function ProductSection({ title, products: items, id }: Props) {
             <button
               type="button"
               onClick={() => scroll("left")}
-              className="flex h-9 w-9 items-center justify-center rounded-full border border-black/12 text-[#171717] transition-colors hover:bg-[#171717] hover:text-white"
+              className="flex h-9 w-9 items-center justify-center rounded-full border border-black/12 text-[#39454B] transition-colors hover:border-[#BC0000] hover:bg-[#BC0000] hover:text-white"
               aria-label="Previous"
             >
               <ChevronLeft className="h-4 w-4" />
@@ -40,7 +40,7 @@ export default function ProductSection({ title, products: items, id }: Props) {
             <button
               type="button"
               onClick={() => scroll("right")}
-              className="flex h-9 w-9 items-center justify-center rounded-full border border-black/12 text-[#171717] transition-colors hover:bg-[#171717] hover:text-white"
+              className="flex h-9 w-9 items-center justify-center rounded-full border border-black/12 text-[#39454B] transition-colors hover:border-[#BC0000] hover:bg-[#BC0000] hover:text-white"
               aria-label="Next"
             >
               <ChevronRight className="h-4 w-4" />
