@@ -1,12 +1,26 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { MessageCircle, Video, X } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
 import { siteConfig } from "@/config/site";
 
 export default function LiveDemoFab() {
   const [open, setOpen] = useState(false);
+  const [footerVisible, setFooterVisible] = useState(false);
+
+  useEffect(() => {
+    const footer = document.querySelector(".site-footer");
+    if (!footer) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => setFooterVisible(entry.isIntersecting),
+      { threshold: 0.05 }
+    );
+
+    observer.observe(footer);
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <>
@@ -21,8 +35,10 @@ export default function LiveDemoFab() {
 
       <button
         type="button"
-        className="ask-cyber-fab"
+        className={footerVisible ? "ask-cyber-fab ask-cyber-fab--hidden" : "ask-cyber-fab"}
         onClick={() => setOpen(true)}
+        aria-hidden={footerVisible}
+        tabIndex={footerVisible ? -1 : 0}
       >
         <MessageCircle className="h-4 w-4" fill="currentColor" strokeWidth={0} />
         Ask Cyber
@@ -39,7 +55,7 @@ export default function LiveDemoFab() {
               onClick={() => setOpen(false)}
             />
             <motion.div
-              className="fixed bottom-24 right-5 z-[52] w-[min(100vw-2rem,340px)] rounded-2xl bg-white p-5 shadow-2xl"
+              className="live-demo-panel rounded-2xl bg-white p-5 shadow-2xl"
               initial={{ opacity: 0, y: 20, scale: 0.95 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: 20, scale: 0.95 }}

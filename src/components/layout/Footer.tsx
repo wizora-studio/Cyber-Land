@@ -15,7 +15,7 @@ import BrandLogo from "@/components/common/BrandLogo";
 function FooterAccordion({
   title,
   children,
-  defaultOpen = true,
+  defaultOpen = false,
 }: {
   title: string;
   children: React.ReactNode;
@@ -24,15 +24,14 @@ function FooterAccordion({
   const [open, setOpen] = useState(defaultOpen);
 
   return (
-    <div className="w-full md:w-auto md:min-w-[160px] xl:min-w-[200px]">
+    <div className="footer-group">
       <button
         type="button"
-        className="flex w-full items-center justify-between gap-2 py-2 md:cursor-default md:pointer-events-none"
-        onClick={() => setOpen((v) => !v)}
+        className="footer-group__trigger"
+        onClick={() => setOpen((value) => !value)}
+        aria-expanded={open}
       >
-        <span className="heading text-base font-medium md:text-lg lg:text-xl">
-          {title}
-        </span>
+        <span>{title}</span>
         <ChevronDown
           className={cn(
             "h-4 w-4 transition-transform md:hidden",
@@ -42,7 +41,7 @@ function FooterAccordion({
       </button>
       <div
         className={cn(
-          "overflow-hidden transition-all duration-300",
+          "footer-group__content",
           open ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0 md:max-h-none md:opacity-100"
         )}
       >
@@ -52,76 +51,87 @@ function FooterAccordion({
   );
 }
 
+function FooterLinkList({
+  links,
+}: {
+  links: { label: string; href: string }[];
+}) {
+  return (
+    <ul className="footer-link-list">
+      {links.map((link) => (
+        <li key={link.label}>
+          <Link href={link.href} className="footer-link">
+            <span>{link.label}</span>
+          </Link>
+        </li>
+      ))}
+    </ul>
+  );
+}
+
 export default function Footer() {
+  const midpoint = Math.ceil(footerQuickLinks.length / 2);
+  const exploreLinks = footerQuickLinks.slice(0, midpoint);
+  const companyLinks = footerQuickLinks.slice(midpoint);
+
   return (
     <>
       <div className="site-footer">
-        <footer className="page-width relative grid gap-10">
-          <div className="flex flex-col gap-8 md:flex-row md:flex-wrap md:gap-12">
-            <FooterAccordion title="Quick Links">
-              <ul className="flex flex-col gap-3 pb-4 pt-2">
-                {footerQuickLinks.map((link) => (
-                  <li key={link.label}>
-                    <Link
-                      href={link.href}
-                      className="reversed-link text-sm leading-tight text-white/90 hover:text-white md:text-base"
-                    >
-                      {link.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </FooterAccordion>
+        <footer className="page-width">
+          <div className="footer-main">
+            <div className="footer-brand-panel">
+              <BrandLogo inverted />
+              <p className="footer-brand-copy">
+                Computers, laptops, and gaming gear backed by straightforward
+                advice and local support.
+              </p>
+              <p className="footer-service-note">
+                Pakistan-wide delivery <span aria-hidden>·</span> 7-day
+                replacement on eligible products
+              </p>
+            </div>
 
-            <FooterAccordion title="Socials">
-              <ul className="flex flex-col gap-3 pb-4 pt-2">
-                {footerSocials.map((link) => (
-                  <li key={link.label}>
-                    <span
-                      className="text-sm leading-tight text-white/90 md:text-base"
-                    >
-                      {link.label}
-                    </span>
-                  </li>
-                ))}
-              </ul>
-            </FooterAccordion>
+            <div className="footer-navigation">
+              <FooterAccordion title="Explore">
+                <FooterLinkList links={exploreLinks} />
+              </FooterAccordion>
 
-            <FooterAccordion title="Reach out to us:">
-              <div className="flex flex-col gap-1 pb-4 pt-2">
-                <a
-                  href={siteConfig.support.phoneHref}
-                  className="text-sm leading-tight text-white/90 hover:text-white md:text-base"
-                >
+              <FooterAccordion title="Company & Support">
+                <FooterLinkList links={companyLinks} />
+              </FooterAccordion>
+
+              <FooterAccordion title="Socials">
+                <ul className="footer-social-list">
+                  {footerSocials.map((link) => (
+                    <li key={link.label}>
+                      <span>{link.label}</span>
+                    </li>
+                  ))}
+                </ul>
+              </FooterAccordion>
+
+              <address className="footer-contact">
+                <p>Customer care</p>
+                <a href={siteConfig.support.phoneHref}>
                   {siteConfig.support.phone}
                 </a>
-                <a
-                  href={`mailto:${siteConfig.support.email}`}
-                  className="text-sm leading-tight text-white/90 hover:text-white md:text-base"
-                >
+                <a href={`mailto:${siteConfig.support.email}`}>
                   {siteConfig.support.email}
                 </a>
-              </div>
-            </FooterAccordion>
+                <span>{siteConfig.support.hours}</span>
+              </address>
+            </div>
           </div>
         </footer>
       </div>
 
       <div className="footer-copyright">
-        <div className="page-width page-width--full flex w-full flex-col items-center justify-between gap-4 lg:flex-row lg:gap-0">
-          <div className="credits flex items-center gap-2 text-center text-sm text-white/90">
-            <span>©&nbsp;2026</span>
-            <BrandLogo inverted className="scale-90" />
-          </div>
-          <ul className="flex flex-wrap justify-center gap-3 lg:justify-start">
-            {footerPolicies.map((p) => (
-              <li key={p.label}>
-                <Link
-                  href={p.href}
-                  className="reversed-link text-xs text-white/80 hover:text-white"
-                >
-                  {p.label}
-                </Link>
+        <div className="page-width footer-copyright__inner">
+          <p>© 2026 Cyber Land. All rights reserved.</p>
+          <ul>
+            {footerPolicies.map((policy) => (
+              <li key={policy.label}>
+                <Link href={policy.href}>{policy.label}</Link>
               </li>
             ))}
           </ul>

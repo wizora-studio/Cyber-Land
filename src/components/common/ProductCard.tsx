@@ -23,7 +23,7 @@ export default function ProductCard({ product, className, priority }: Props) {
       return (
         <Link
           href={`/products/${product.handle}?notify=1`}
-          className="btn btn-secondary btn-sm btn-full"
+          className="btn btn-secondary btn-sm product-card__cta"
           onClick={(e) => e.stopPropagation()}
         >
           Notify me when it&apos;s available
@@ -34,7 +34,7 @@ export default function ProductCard({ product, className, priority }: Props) {
       return (
         <Link
           href={`/products/${product.handle}`}
-          className="btn btn-primary btn-sm btn-full"
+          className="btn btn-sm product-card__cta"
           onClick={(e) => e.stopPropagation()}
         >
           Choose options
@@ -44,7 +44,7 @@ export default function ProductCard({ product, className, priority }: Props) {
     return (
       <button
         type="button"
-        className="btn btn-primary btn-sm btn-full"
+        className="btn btn-sm product-card__cta"
         onClick={(e) => {
           e.preventDefault();
           e.stopPropagation();
@@ -88,9 +88,6 @@ export default function ProductCard({ product, className, priority }: Props) {
           priority={priority}
         />
 
-        <div className="absolute bottom-2 left-2 right-2 z-[2] translate-y-2 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100 max-md:translate-y-0 max-md:opacity-100">
-          {cta()}
-        </div>
       </div>
 
       <div className="product-card__info">
@@ -112,6 +109,7 @@ export default function ProductCard({ product, className, priority }: Props) {
             </>
           )}
         </div>
+        <div className="product-card__actions">{cta()}</div>
       </div>
     </article>
   );
